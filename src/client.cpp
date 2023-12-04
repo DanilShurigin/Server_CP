@@ -17,72 +17,10 @@
 #include "client.hpp"
 
 void Client::Serve() {
-    // auto rc_id_line = RecvMessage();
-    // if( rc_id_line.first == false ) {
-    //     //close(work_socket_);
-    //     throw AuthException("Failed to recieve ID");
-    // }
-    // logger_("Port: "+std::to_string(port_)+". Recieved ID: "+rc_id_line.second, Debug);
-
-    // auto finded_pass = cb_viewer_(rc_id_line.second);
-    // if( finded_pass.first == false ) {
-    //     send(work_socket_, "ERR", 4, 0);
-    //     //close(work_socket_);
-    //     throw AuthException("Port: "+std::to_string(port_)+". ID "+rc_id_line.second+" doesn`t exist in the client base");
-    // }
-
-    // std::random_device rnd;
-    // std::mt19937_64 rnd_generator(rnd());
-    // uint64_t rnd_number = rnd_generator();
-    // std::string salt;
-
-    // CryptoPP::StringSource((const CryptoPP::byte*)&rnd_number,
-    //                        8,
-    //                        true,
-    //                        new CryptoPP::HexEncoder(new CryptoPP::StringSink(salt))
-    //                       );
-
-    // if( send(work_socket_, salt.c_str(), 16, 0) == -1) {
-    //     //close(work_socket_);
-    //     throw AuthException("Port: "+std::to_string(port_)+". Failed to send SALT");
-    // }
-
-    // auto rc_hash = RecvMessage();
-    // if( rc_hash.first == false ) {
-    //     //close(work_socket_);
-    //     throw AuthException("Port: "+std::to_string(port_)+". Failed to recieve HASH");
-    // }
-
-    // CryptoPP::Weak::MD5 hash;
-    // std::string result_hash;
-    // CryptoPP::StringSource(salt + finded_pass.second, true,
-    //                        new CryptoPP::HashFilter(hash,
-    //                                new CryptoPP::HexEncoder(
-    //                                    new CryptoPP::StringSink(result_hash)
-    //                                )
-    //                                                )
-    //                       );
-
-    // if( rc_hash.second != result_hash ) {
-    //     send(work_socket_, "ERR", 4, 0);
-    //     //close(work_socket_);
-    //     throw AuthException("Port: "+std::to_string(port_)+". Authentification error");
-    // }
-    // if( send(work_socket_, "OK", 3, 0) == -1 ) {
-    //     //close(work_socket_);
-    //     throw AuthException("Port: "+std::to_string(port_)+". Failed to send OK");
-    // }
     logger_("Port: "+std::to_string(port_)+". Start authentification", Debug);
     Authentificate();
     logger_("Port: "+std::to_string(port_)+". Start calculations", Debug);
     Calculate();
-    // try {
-    //     logger_("Port: "+std::to_string(port_)+". Start calculations", Info);
-    //     Calculate();
-    // } catch( const CalcException& ex ) {
-    //     //close(work_socket_);
-    //     throw CalcException(ex.what());
-    // }
 }
 
 std::pair< bool, std::string > Client::RecvMessage() {
@@ -218,41 +156,7 @@ void Client::Calculate() {
 
     logger_("Port: "+std::to_string(port_)+". Recieved vectors count "+std::to_string(vectors_count), Debug);
 
-    for( uint32_t i=0; i<vectors_count; i++) {
-        // if( recv(work_socket_, (void*)&vector_size, sizeof(uint32_t), 0) == -1) {
-        //     throw CalcException("Port: "+std::to_string(port_)+". Failed to receive size of vector. Vector No: "+std::to_string(i+1));
-        // }
-
-        // logger_("Port: "+std::to_string(port_)+". Recieved size of vector No"+std::to_string(i+1)+": "+std::to_string(vector_size), Debug);
-
-        // std::unique_ptr< int32_t[] > v(new int32_t[vector_size]);
-        // int v_size;
-        // if( (v_size = recv(work_socket_, (void*)v.get(), sizeof(int32_t)*vector_size, 0)) == -1 ) {
-        //     throw CalcException("Port: "+std::to_string(port_)+". Failed to receive vector. Vector No: "+std::to_string(i+1));
-        // }
-        // if( sizeof(int32_t)*vector_size != (uint32_t)v_size ) {
-        //     throw CalcException("Port: "+std::to_string(port_)+". Failed to receive vector. Size error. Vector No: "+std::to_string(i+1));
-        // }
-
-        // logger_("Port: "+std::to_string(port_)+". Vector No"+std::to_string(i+1)+" is successfuly recieved", Debug);
-
-        // int32_t sum_result = 0;
-        // for(uint32_t j=0; j<vector_size; j++) {
-        //     if( (v[j] > 0) && (sum_result > (std::numeric_limits< int32_t >::max() - v[j])) ) {
-        //         sum_result = std::numeric_limits< int32_t >::max();
-        //         logger_("Port: "+std::to_string(port_)+". Overflow during summation in vector No"+std::to_string(i+1), Debug);
-        //         break;
-        //     }
-        //     if( (v[j] < 0) && (sum_result < (std::numeric_limits< int32_t >::min() - v[j])) ) {
-        //         sum_result = std::numeric_limits< int32_t >::min();
-        //         logger_("Port: "+std::to_string(port_)+". Underflow during summation in vector No"+std::to_string(i+1), Debug);
-        //         break;
-        //     }
-        //     sum_result += v[j];
-        // }
-
-        // logger_("Port: "+std::to_string(port_)+". Summation in vector No"+std::to_string(i+1)+" is successfuly ended", Debug);
-        
+    for( uint32_t i=0; i<vectors_count; i++) {       
         int32_t sum_result = CalculateVector(RecvVector());
         
         if( send(work_socket_, (void*)&sum_result, sizeof(int32_t), 0) == -1 ) {

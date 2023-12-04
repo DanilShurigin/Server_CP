@@ -45,15 +45,15 @@ Communicator::Communicator(
     if( bind(listen_socket_, reinterpret_cast< const sockaddr* >(self_addr_.get()), sizeof(sockaddr_in)) == -1 ) {
         throw ServerException("Failed to bind socket");
     }
-}
 
-void Communicator::operator()() {
     if( listen(listen_socket_, queue_length_) == -1 ) {
         throw ServerException("Failed to start listen");
     }
 
     logger_("Server is running", Info);
+}
 
+void Communicator::operator()() {
     socklen_t addr_len = sizeof(sockaddr_in);
     int client_socket;
 

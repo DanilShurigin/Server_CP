@@ -18,42 +18,68 @@ SUITE( KeyTest ) {
         const char* test_argv[test_argc] = {"NAME"};
         CHECK_THROW(ui.CheckParams(test_argc, const_cast<char**>(test_argv)), po::error);
     }
-    TEST_FIXTURE(BaseUi, testComLineStrangeComLineParam) {
-        int test_argc = 3;
-        const char* test_argv[test_argc] = {"NAME", "-k", "123"};
+    TEST_FIXTURE(BaseUi, testComLineOnlyHelp) {
+        int test_argc = 2;
+        const char* test_argv[test_argc] = {"NAME", "-h"};
+        ui.CheckParams(test_argc, const_cast<char**>(test_argv));
+        CHECK(true);
+    }
+    TEST_FIXTURE(BaseUi, testComLineHelp) {
+        int test_argc = 6;
+        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "data/vcalc.log", "-h"};
+        ui.CheckParams(test_argc, const_cast<char**>(test_argv));
+        CHECK(true);
+    }
+    TEST_FIXTURE(BaseUi, testComLineUnknownOnly) {
+        int test_argc = 2;
+        const char* test_argv[test_argc] = {"NAME", "-k"};
         CHECK_THROW(ui.CheckParams(test_argc, const_cast<char**>(test_argv)), po::error);
     }
-    TEST_FIXTURE(BaseUi, testComLineHelpOnly) {
-        int test_argc = 2;
-        const char* test_argv[test_argc] = {"NAME", "--help"};
-        CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
+    TEST_FIXTURE(BaseUi, testComLineUnknown) {
+        int test_argc = 6;
+        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "data/vcalc.log", "-k"};
+        CHECK_THROW(ui.CheckParams(test_argc, const_cast<char**>(test_argv)), po::error);
     }
-    TEST_FIXTURE(BaseUi, testComLineHelpNotOnly) {
-        int test_argc = 4;
-        const char* test_argv[test_argc] = {"NAME", "-c", "way_to_hell", "-h"};
-        CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
-    }
-    TEST_FIXTURE(BaseUi, testComLineBrokenLogFilePath) {
+    TEST_FIXTURE(BaseUi, testComLineBadClientFilePath) {
         int test_argc = 5;
-        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "/vcalc.log"};
+        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.txt", "-l", "data/vcalc.log"};
         CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
     }
-    TEST_FIXTURE(BaseUi, testComLineBrokenClientBaseFilePath) {
+    TEST_FIXTURE(BaseUi, testComLineUnableClientFilePath) {
+        int test_argc = 5;
+        const char* test_argv[test_argc] = {"NAME", "-c", "/vcalc.conf", "-l", "data/vcalc.log"};
+        CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
+    }
+    TEST_FIXTURE(BaseUi, testComLineUnableLogFilePath) {
         int test_argc = 3;
-        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.txt"};
+        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf"};
         CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
     }
-    TEST_FIXTURE(BaseUi, testComLineBrokenPortNumberMinus) {
+    TEST_FIXTURE(BaseUi, testComLineUnknownLogFilePath) {
         int test_argc = 5;
-        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "data/vcalc.log", "-p", "0"};
+        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "data/log/vcalc.log"};
         CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
     }
-    TEST_FIXTURE(BaseUi, testComLineBrokentPortOverMax) {
-        int test_argc = 5;
-        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "data/vcalc.log", "-p", "70000"};
+    TEST_FIXTURE(BaseUi, testComLineSysPort) {
+        int test_argc = 7;
+        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "data/log/vcalc.log", "-p", "102"};
         CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
     }
-    
+    TEST_FIXTURE(BaseUi, testComLineBadPort) {
+        int test_argc = 7;
+        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "data/log/vcalc.log", "-p", "70000"};
+        CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
+    }
+    TEST_FIXTURE(BaseUi, testComLineSudoStart) {
+        int test_argc = 3;
+        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf"};
+        CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
+    }
+    TEST_FIXTURE(BaseUi, testComLineAllStart) {
+        int test_argc = 7;
+        const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "data/log/vcalc.log", "-p", "33333"};
+        CHECK(ui.CheckParams(test_argc, const_cast<char**>(test_argv)) == false);
+    }
 }
 
 int main(int argc, char **argv) {
