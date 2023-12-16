@@ -1,4 +1,3 @@
-#include <sstream>
 #include <iostream>
 #include <fstream>
 #include <limits>
@@ -27,6 +26,9 @@ UserInterface::UserInterface() {
     ("port,p",
      po::value< int >(&port_)->default_value(defPort),
      "Port number")
+    ("threads,t",
+     po::value< int >(&threads_)->default_value(defThreadsCount),
+     "Threads count")
     ;
 }
 

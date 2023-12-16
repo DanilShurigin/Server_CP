@@ -22,8 +22,10 @@ class UserInterface {
 
     const int defPort = 33333;
     const std::string defLogFilePath = "/var/log/vcalc.log";
+    const int defThreadsCount = 1;
 
     std::string client_base_file_path_;
     std::string log_file_path_;
     int port_;
+    int threads_;
 };
