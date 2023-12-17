@@ -1,3 +1,10 @@
+/**
+ * @file server_exceptions.hpp
+ * @author Шурыгин Д.Д.
+ * @brief Заголовочный файл определения классов исключений.
+ * @date 2023-12-16
+ * @warning Создано только в учебных целях.
+ */
 #pragma once
 
 #include <exception>
@@ -6,22 +13,20 @@
 
 #include <string>
 
-// Общий класс исключений сервера
+/**
+ * @brief Общий класс исключений сервера.
+ */
 class ServerException : public std::runtime_error {
 
 public:
     ServerException(const char* msg): std::runtime_error(msg){};
     ServerException(const std::string& msg): std::runtime_error(msg){};
-
 };
 
-// Исключения при обработке командной строки
-class ComLineException : public boost::program_options::error  {
-public:
-    ComLineException(const char* msg): boost::program_options::error(msg){};
-};
-
-// Исключения при работе с файлами
+// 
+/**
+ * @brief Класс исключений при работе с файлами.
+ */
 class SysException : public ServerException {
 
 public:
@@ -29,7 +34,10 @@ public:
     SysException(const std::string& msg): ServerException(msg){};
 };
 
-// Исключения при аутентификации клиента
+// 
+/**
+ * @brief Класс исключений при аутентификации клиента.
+ */
 class AuthException : public ServerException {
 
 public:
@@ -37,10 +45,13 @@ public:
     AuthException(const std::string& msg): ServerException(msg){};
 };
 
-// Исключения при работе с данными от клиента
-class CalcException : public ServerException {
+// 
+/**
+ * @brief Класс исключений при работе с данными от клиента.
+ */
+class ClientException : public ServerException {
 
 public:
-    CalcException(const char* msg): ServerException(msg){};
-    CalcException(const std::string& msg): ServerException(msg){};
+    ClientException(const char* msg): ServerException(msg){};
+    ClientException(const std::string& msg): ServerException(msg){};
 };

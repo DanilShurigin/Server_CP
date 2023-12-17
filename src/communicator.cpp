@@ -1,3 +1,10 @@
+/**
+ * @file communicator.cpp
+ * @author Шурыгин Д.Д.
+ * @brief Файл реализации класса Communicator.
+ * @date 2023-12-16
+ * @warning Создано только в учебных целях.
+ */
 #include <string>
 #include <iostream>
 
@@ -22,6 +29,7 @@ Communicator::Communicator(
     client_base_(viewer),
     logger_(logger),
     max_threads_(max_threads) {
+    
     if( listen_socket_ == -1 ) {
         throw ServerException("Failed to create socket");
     }
@@ -32,11 +40,7 @@ Communicator::Communicator(
         throw ServerException("Failed to set socket options (SO_REUSEADDR)");
     }
 
-    logger_("Threads limit: "+std::to_string(threads_limit_), Debug);
-    if( max_threads_ > threads_limit_ || max_threads_ < 0 ) {
-        logger_("The number of threads exceeds the limit. The value is forsed set to 1", Warn);
-        max_threads_ = 1;
-    }
+    // logger_("Threads to use: "+std::to_string(max_threads_), Debug);
 
     self_addr_->sin_family = AF_INET;
     self_addr_->sin_port = htons(port);
@@ -49,8 +53,6 @@ Communicator::Communicator(
     if( listen(listen_socket_, queue_length_) == -1 ) {
         throw ServerException("Failed to start listen");
     }
-
-    logger_("Server is running", Info);
 }
 
 void Communicator::operator()() {
@@ -65,7 +67,7 @@ void Communicator::operator()() {
             continue;
         }
 
-        struct timeval timeout {30, 0};
+        struct timeval timeout {10, 0};
         if( setsockopt(client_socket, SOL_SOCKET,
                        SO_RCVTIMEO, &timeout, sizeof timeout) == -1 ) {
             logger_("Failed to set client socket options (SO_RCVTIMEO)", Warn);
@@ -88,15 +90,14 @@ void Communicator::operator()() {
 }
 
 void Communicator::ServeClient(int work_socket, uint16_t port) {
-    if( max_threads_ == 1 ) {
-        logger_("Port: "+std::to_string(port)+". Start serving client", Info);
-    } else {
-        logger_("Port: "+std::to_string(port)+". Start serving client in datached thread", Info);
-    }
+    logger_("Port: "+std::to_string(port)+". Start serving client", Info);
 
     try {
         Client client(work_socket, port, client_base_, logger_);
-        client.Serve();
+        logger_("Port: "+std::to_string(port)+". Start authentification", Debug);
+        client.Authentificate();
+        logger_("Port: "+std::to_string(port)+". Start calculations", Debug);
+        client.Calculate();
     } catch( const ServerException& ex ) {
         logger_(ex.what(), Error);
     }

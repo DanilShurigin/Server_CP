@@ -1,3 +1,10 @@
+/**
+ * @file client_base.cpp
+ * @author Шурыгин Д.Д.
+ * @brief Файл реализации класса ClientBase.
+ * @date 2023-12-16
+ * @warning Создано только в учебных целях.
+ */
 #include <fstream>
 #include <utility>
 
@@ -9,7 +16,7 @@ ClientBase::ClientBase(const std::string &file_path) {
     std::ifstream in_file(file_path);
 
     if( in_file.fail() ) {
-        throw SysException("Failed to open client base file");
+        throw SysException("Failed to open client base file.");
     }
     if (in_file.peek() == std::fstream::traits_type::eof()) {
         throw SysException("Client base file is empty.");

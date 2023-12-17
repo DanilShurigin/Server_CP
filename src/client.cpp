@@ -1,3 +1,10 @@
+/**
+ * @file client.cpp
+ * @author Шурыгин Д.Д.
+ * @brief Файл реализации класса Client.
+ * @date 2023-12-16
+ * @warning Создано только в учебных целях.
+ */
 #include <limits>
 #include <memory>
 #include <random>
@@ -15,13 +22,6 @@
 #include "log_writer.hpp"
 
 #include "client.hpp"
-
-void Client::Serve() {
-    logger_("Port: "+std::to_string(port_)+". Start authentification", Debug);
-    Authentificate();
-    logger_("Port: "+std::to_string(port_)+". Start calculations", Debug);
-    Calculate();
-}
 
 std::pair< bool, std::string > Client::RecvMessage() {
     ssize_t capacity = 32;
@@ -103,7 +103,7 @@ void Client::Authentificate() {
 std::vector<int32_t> Client::RecvVector() {
     uint32_t vector_size;
     if( recv(work_socket_, (void*)&vector_size, sizeof(uint32_t), 0) == -1) {
-        throw CalcException("Port: "+std::to_string(port_)+". Failed to receive size of vector");
+        throw ClientException("Port: "+std::to_string(port_)+". Failed to receive size of vector");
     }
 
     logger_("Port: "+std::to_string(port_)+". Recieved size of vector: "+std::to_string(vector_size), Debug);
@@ -111,10 +111,10 @@ std::vector<int32_t> Client::RecvVector() {
     std::unique_ptr< int32_t[] > v(new int32_t[vector_size]);
     int v_size;
     if( (v_size = recv(work_socket_, (void*)v.get(), sizeof(int32_t)*vector_size, 0)) == -1 ) {
-        throw CalcException("Port: "+std::to_string(port_)+". Failed to receive vector");
+        throw ClientException("Port: "+std::to_string(port_)+". Failed to receive vector");
     }
     if( sizeof(int32_t)*vector_size != (uint32_t)v_size ) {
-        throw CalcException("Port: "+std::to_string(port_)+". Failed to receive vector. Size error");
+        throw ClientException("Port: "+std::to_string(port_)+". Failed to receive vector. Size error");
     }
 
     logger_("Port: "+std::to_string(port_)+". Vector is successfuly recieved", Debug);
@@ -151,7 +151,7 @@ void Client::Calculate() {
     uint32_t vectors_count;
 
     if( recv(work_socket_, (void*)&vectors_count, sizeof(uint32_t), 0) == -1) {
-        throw CalcException("Port: "+std::to_string(port_)+". Failed to receive vectors count");
+        throw ClientException("Port: "+std::to_string(port_)+". Failed to receive vectors count");
     }
 
     logger_("Port: "+std::to_string(port_)+". Recieved vectors count "+std::to_string(vectors_count), Debug);
@@ -160,7 +160,7 @@ void Client::Calculate() {
         int32_t sum_result = CalculateVector(RecvVector());
         
         if( send(work_socket_, (void*)&sum_result, sizeof(int32_t), 0) == -1 ) {
-            throw CalcException("Port: "+std::to_string(port_)+". Failed to send result");
+            throw ClientException("Port: "+std::to_string(port_)+". Failed to send result");
         }
         logger_("Port: "+std::to_string(port_)+". Result for vector No"+std::to_string(i+1)+" is successfuly sent", Debug);
     }

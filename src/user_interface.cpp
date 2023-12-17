@@ -1,3 +1,10 @@
+/**
+ * @file user_interface.cpp
+ * @author Шурыгин Д.Д.
+ * @brief Файл реализации класса UserInterface.
+ * @date 2023-12-16
+ * @warning Создано только в учебных целях.
+ */
 #include <iostream>
 #include <fstream>
 #include <limits>
@@ -12,7 +19,6 @@
 #define SYS_RESERVED_PORTS 1024
 
 constexpr int QUEUE_LENGTH = 10;
-constexpr int THREADS_COUNT = 1;
 
 UserInterface::UserInterface() {
     description_.add_options()
@@ -24,10 +30,10 @@ UserInterface::UserInterface() {
      po::value< std::string >(&log_file_path_)->default_value(defLogFilePath),
      "Log file name")
     ("port,p",
-     po::value< int >(&port_)->default_value(defPort),
+     po::value< unsigned int >(&port_)->default_value(defPort),
      "Port number")
     ("threads,t",
-     po::value< int >(&threads_)->default_value(defThreadsCount),
+     po::value< unsigned int >(&threads_)->default_value(defThreadsCount),
      "Threads count")
     ;
 }
@@ -50,8 +56,6 @@ bool UserInterface::CheckParams(int argc, char** argv) {
                       << "' is unavailable." << std::endl;
             return false;
         }
-        std::cout << "Ready to read client base file: "
-                  << client_base_file_path_ << std::endl;
     }
 
     {
@@ -61,15 +65,20 @@ bool UserInterface::CheckParams(int argc, char** argv) {
                       << "' is unavailable." << std::endl;
             return false;
         }
-        std::cout << "Ready to write log in: "
-                  << log_file_path_ << std::endl;
     }
 
     if (port_ < 0 ||
-            port_ > std::numeric_limits<uint16_t>::max() ||
-            port_ <= SYS_RESERVED_PORTS) {
-            std::cerr << "Port No " << port_
-                      << " is unavailable." << std::endl;
+        port_ > std::numeric_limits<uint16_t>::max() ||
+        port_ <= SYS_RESERVED_PORTS) {
+        std::cerr << "Port No " << port_
+                  << " is unavailable." << std::endl;
+        return false;
+    }
+
+    if (threads_ < 1 || threads_ > std::thread::hardware_concurrency()) {
+        std::cout << "Number of threads '"
+                  << threads_
+                  << "' is unavailable." << std::endl;
         return false;
     }
     return true;
@@ -78,10 +87,17 @@ bool UserInterface::CheckParams(int argc, char** argv) {
 void UserInterface::StartServer(LogPriority limit) {
     LogWriter logger(log_file_path_, limit);
     logger("Start logger", Debug);
+    
+    try {
+        ClientBase cl_base(client_base_file_path_);
+        logger("Client base is successfully read.", Debug);
 
-    ClientBase cl_base(client_base_file_path_);
-    logger("Client base is successfully read.", Debug);
+        Communicator comm(port_, QUEUE_LENGTH, cl_base, logger, threads_);
+        logger("Server is running", Info);
 
-    Communicator comm(port_, QUEUE_LENGTH, cl_base, logger, THREADS_COUNT);
-    comm();
+        comm();
+    } catch(const ServerException& e) {
+        logger(e.what(), Fatal);
+        throw e;
+    }
 }

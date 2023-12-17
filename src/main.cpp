@@ -12,10 +12,12 @@ int main(int argc, char **argv) {
         }
         ui.StartServer(Info);
     } catch(const po::error& e) {
-        std::cerr << e.what() << std::endl;
-        std::cerr << "Use -h for help." << std::endl;
+        // Error while parsing
+        std::cerr << e.what() << std::endl
+                  << "Use -h for help." << std::endl;
         exit(EXIT_FAILURE);
     } catch(const ServerException& e) {
+        // Invalid parameter
         std::cerr << e.what() << std::endl;
         exit(EXIT_FAILURE);
     } catch(...) {

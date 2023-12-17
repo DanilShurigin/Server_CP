@@ -27,7 +27,7 @@ SUITE( ComLineTests ) {
     TEST_FIXTURE(BaseUi, testHelp) {
         int test_argc = 6;
         const char* test_argv[test_argc] = {"NAME", "-c", "data/vcalc.conf", "-l", "data/vcalc.log", "-h"};
-        CHECK_EQUAL(true,
+        CHECK_EQUAL(false,
                     ui.CheckParams(test_argc, const_cast<char**>(test_argv)));
     }
     TEST_FIXTURE(BaseUi, testOnlyUnknownParam) {
