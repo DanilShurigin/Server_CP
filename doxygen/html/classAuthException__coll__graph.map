@@ -1,0 +1,5 @@
+<map id="AuthException" name="AuthException">
+<area shape="rect" id="node1" title="Класс исключений при аутентификации клиента." alt="" coords="11,300,182,421"/>
+<area shape="rect" id="node2" href="$classServerException.html" title="Общий класс исключений сервера." alt="" coords="5,131,188,252"/>
+<area shape="rect" id="node3" title=" " alt="" coords="27,5,166,83"/>
+</map>

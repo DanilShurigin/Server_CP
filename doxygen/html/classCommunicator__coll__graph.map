@@ -1,0 +1,5 @@
+<map id="Communicator" name="Communicator">
+<area shape="rect" id="node1" title="Класс для управления сетевым взаимодействием." alt="" coords="104,277,317,575"/>
+<area shape="rect" id="node2" href="$classClientBase.html" title="Класс для чтения и обработки аутентификационных данных пользователей." alt="" coords="5,13,195,207"/>
+<area shape="rect" id="node3" href="$classLogWriter.html" title="Класс для записи информации в журнал работы сервера." alt="" coords="219,5,426,215"/>
+</map>

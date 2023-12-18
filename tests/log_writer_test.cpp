@@ -24,9 +24,6 @@ SUITE( LoggerTest ) {
     TEST_FIXTURE(LogWriterTest, testHighPriority) {
       CHECK(logger("Message", Error));
     }
-    TEST_FIXTURE(LogWriterTest, testTime) {
-      //
-    }
 }
 
 int main(int argc, char **argv) {

@@ -1,0 +1,7 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,144,83"/>
+<area shape="rect" id="node2" href="$classServerException.html" title="Общий класс исключений сервера." alt="" coords="192,56,320,83"/>
+<area shape="rect" id="node3" href="$classAuthException.html" title="Класс исключений при аутентификации клиента." alt="" coords="372,5,488,32"/>
+<area shape="rect" id="node4" href="$classClientException.html" title="Класс исключений при работе с данными от клиента." alt="" coords="368,56,492,83"/>
+<area shape="rect" id="node5" href="$classSysException.html" title="Класс исключений при работе с файлами." alt="" coords="375,107,485,133"/>
+</map>

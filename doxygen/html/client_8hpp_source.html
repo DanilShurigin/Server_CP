@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server-Calculator: Исходный файл src/client.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server-Calculator<span id="projectnumber">&#160;1.4</span>
+   </div>
+   <div id="projectbrief">Курсовая работа по дисциплине &#39;Технологии и методы программирования&#39;.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">client.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="client_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="client__base_8hpp.html">client_base.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="log__writer_8hpp.html">log_writer.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classClient.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classClient.html">Client</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classClient.html#aaf96e359a2ad91acd007bffa1c1bfd19">   23</a></span>    <a class="code hl_function" href="classClient.html#aaf96e359a2ad91acd007bffa1c1bfd19">Client</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classClient.html#a49c41aa7bf592efde3635134e5896b43">   32</a></span>    <a class="code hl_function" href="classClient.html#a49c41aa7bf592efde3635134e5896b43">Client</a>(<span class="keywordtype">int</span> sock, uint16_t port, <a class="code hl_class" href="classClientBase.html">ClientBase</a>&amp; viewer, <a class="code hl_class" href="classLogWriter.html">LogWriter</a>&amp; logger):</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_variable" href="classClient.html#ae120c4664da99307c0db72cf68dfce4d">work_socket_</a>(sock), <a class="code hl_variable" href="classClient.html#a53604db77c6730b2a90f4a5851c4cc73">port_</a>(port), <a class="code hl_variable" href="classClient.html#a1f0534c6d219e1870a9d23be301c2246">cb_viewer_</a>(viewer), <a class="code hl_variable" href="classClient.html#a31f26f2ca7b4771843834074985ddd90">logger_</a>(logger){};</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classClient.html#ac63a6c1aa4d00b4e105d35a87bf1d857">Authentificate</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classClient.html#af2bb687bfa5a7a6820191f391278947b">Calculate</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#ifdef UNIT_TEST_SRV</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classClient.html#ae120c4664da99307c0db72cf68dfce4d">   68</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classClient.html#ae120c4664da99307c0db72cf68dfce4d">work_socket_</a>;         </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classClient.html#a53604db77c6730b2a90f4a5851c4cc73">   69</a></span>    uint16_t <a class="code hl_variable" href="classClient.html#a53604db77c6730b2a90f4a5851c4cc73">port_</a>;           </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classClient.html#a1f0534c6d219e1870a9d23be301c2246">   70</a></span>    <a class="code hl_class" href="classClientBase.html">ClientBase</a>&amp; <a class="code hl_variable" href="classClient.html#a1f0534c6d219e1870a9d23be301c2246">cb_viewer_</a>;   </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classClient.html#a31f26f2ca7b4771843834074985ddd90">   71</a></span>    <a class="code hl_class" href="classLogWriter.html">LogWriter</a>&amp; <a class="code hl_variable" href="classClient.html#a31f26f2ca7b4771843834074985ddd90">logger_</a>;       </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">// Обработка присылаемых векторов</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"></span>    int32_t <a class="code hl_function" href="classClient.html#a156ed163a573d57430a0e90746f58d90">CalculateVector</a>(<span class="keyword">const</span> std::vector&lt;int32_t&gt;&amp; vec);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    std::pair&lt;bool, std::string&gt; <a class="code hl_function" href="classClient.html#a817b0382ae7b1d4f47eabe44cbbe816e">RecvMessage</a>();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    std::vector&lt;int32_t&gt; <a class="code hl_function" href="classClient.html#a3fe21ae1b1639fbe9b7a9764758a1ca6">RecvVector</a>();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>};</div>
+<div class="ttc" id="aclassClientBase_html"><div class="ttname"><a href="classClientBase.html">ClientBase</a></div><div class="ttdoc">Класс для чтения и обработки аутентификационных данных пользователей.</div><div class="ttdef"><b>Definition:</b> client_base.hpp:16</div></div>
+<div class="ttc" id="aclassClient_html"><div class="ttname"><a href="classClient.html">Client</a></div><div class="ttdoc">Класс для обработки клиента.</div><div class="ttdef"><b>Definition:</b> client.hpp:21</div></div>
+<div class="ttc" id="aclassClient_html_a156ed163a573d57430a0e90746f58d90"><div class="ttname"><a href="classClient.html#a156ed163a573d57430a0e90746f58d90">Client::CalculateVector</a></div><div class="ttdeci">int32_t CalculateVector(const std::vector&lt; int32_t &gt; &amp;vec)</div><div class="ttdoc">Обработать вектор.</div><div class="ttdef"><b>Definition:</b> client.cpp:129</div></div>
+<div class="ttc" id="aclassClient_html_a1f0534c6d219e1870a9d23be301c2246"><div class="ttname"><a href="classClient.html#a1f0534c6d219e1870a9d23be301c2246">Client::cb_viewer_</a></div><div class="ttdeci">ClientBase &amp; cb_viewer_</div><div class="ttdoc">Ссылка на объект с аутентификационными данными пользователей.</div><div class="ttdef"><b>Definition:</b> client.hpp:70</div></div>
+<div class="ttc" id="aclassClient_html_a31f26f2ca7b4771843834074985ddd90"><div class="ttname"><a href="classClient.html#a31f26f2ca7b4771843834074985ddd90">Client::logger_</a></div><div class="ttdeci">LogWriter &amp; logger_</div><div class="ttdoc">Ссылка на объект, записывающий в журнал работы.</div><div class="ttdef"><b>Definition:</b> client.hpp:71</div></div>
+<div class="ttc" id="aclassClient_html_a3fe21ae1b1639fbe9b7a9764758a1ca6"><div class="ttname"><a href="classClient.html#a3fe21ae1b1639fbe9b7a9764758a1ca6">Client::RecvVector</a></div><div class="ttdeci">std::vector&lt; int32_t &gt; RecvVector()</div><div class="ttdoc">Принять данные вектора от клиента.</div><div class="ttdef"><b>Definition:</b> client.cpp:103</div></div>
+<div class="ttc" id="aclassClient_html_a49c41aa7bf592efde3635134e5896b43"><div class="ttname"><a href="classClient.html#a49c41aa7bf592efde3635134e5896b43">Client::Client</a></div><div class="ttdeci">Client(int sock, uint16_t port, ClientBase &amp;viewer, LogWriter &amp;logger)</div><div class="ttdoc">Конструктор для функций обработки клиента.</div><div class="ttdef"><b>Definition:</b> client.hpp:32</div></div>
+<div class="ttc" id="aclassClient_html_a53604db77c6730b2a90f4a5851c4cc73"><div class="ttname"><a href="classClient.html#a53604db77c6730b2a90f4a5851c4cc73">Client::port_</a></div><div class="ttdeci">uint16_t port_</div><div class="ttdoc">Порт клиента.</div><div class="ttdef"><b>Definition:</b> client.hpp:69</div></div>
+<div class="ttc" id="aclassClient_html_a817b0382ae7b1d4f47eabe44cbbe816e"><div class="ttname"><a href="classClient.html#a817b0382ae7b1d4f47eabe44cbbe816e">Client::RecvMessage</a></div><div class="ttdeci">std::pair&lt; bool, std::string &gt; RecvMessage()</div><div class="ttdoc">Принять строку от клиента.</div><div class="ttdef"><b>Definition:</b> client.cpp:26</div></div>
+<div class="ttc" id="aclassClient_html_aaf96e359a2ad91acd007bffa1c1bfd19"><div class="ttname"><a href="classClient.html#aaf96e359a2ad91acd007bffa1c1bfd19">Client::Client</a></div><div class="ttdeci">Client()=delete</div></div>
+<div class="ttc" id="aclassClient_html_ac63a6c1aa4d00b4e105d35a87bf1d857"><div class="ttname"><a href="classClient.html#ac63a6c1aa4d00b4e105d35a87bf1d857">Client::Authentificate</a></div><div class="ttdeci">void Authentificate()</div><div class="ttdoc">Аутентифицировать клиента.</div><div class="ttdef"><b>Definition:</b> client.cpp:49</div></div>
+<div class="ttc" id="aclassClient_html_ae120c4664da99307c0db72cf68dfce4d"><div class="ttname"><a href="classClient.html#ae120c4664da99307c0db72cf68dfce4d">Client::work_socket_</a></div><div class="ttdeci">int work_socket_</div><div class="ttdoc">окет, через который сервер взаимодействует с клиентом.</div><div class="ttdef"><b>Definition:</b> client.hpp:68</div></div>
+<div class="ttc" id="aclassClient_html_af2bb687bfa5a7a6820191f391278947b"><div class="ttname"><a href="classClient.html#af2bb687bfa5a7a6820191f391278947b">Client::Calculate</a></div><div class="ttdeci">void Calculate()</div><div class="ttdoc">Обработать присылаемые векторы чисел.</div><div class="ttdef"><b>Definition:</b> client.cpp:150</div></div>
+<div class="ttc" id="aclassLogWriter_html"><div class="ttname"><a href="classLogWriter.html">LogWriter</a></div><div class="ttdoc">Класс для записи информации в журнал работы сервера.</div><div class="ttdef"><b>Definition:</b> log_writer.hpp:39</div></div>
+<div class="ttc" id="aclient__base_8hpp_html"><div class="ttname"><a href="client__base_8hpp.html">client_base.hpp</a></div><div class="ttdoc">Заголовочный файл определения класса ClientBase.</div></div>
+<div class="ttc" id="alog__writer_8hpp_html"><div class="ttname"><a href="log__writer_8hpp.html">log_writer.hpp</a></div><div class="ttdoc">Заголовочный файл определения класса LogWriter.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<map id="src/client_base.hpp" name="src/client_base.hpp">
+<area shape="rect" id="node1" title="Заголовочный файл определения класса ClientBase." alt="" coords="213,5,359,32"/>
+<area shape="rect" id="node2" href="$client_8cpp.html" title="Файл реализации класса Client." alt="" coords="5,155,113,181"/>
+<area shape="rect" id="node3" href="$client_8hpp.html" title="Заголовочный файл определения класса Client." alt="" coords="85,80,194,107"/>
+<area shape="rect" id="node4" href="$communicator_8cpp.html" title="Файл реализации класса Communicator." alt="" coords="149,155,314,181"/>
+<area shape="rect" id="node5" href="$client__base_8cpp.html" title="Файл реализации класса ClientBase." alt="" coords="269,80,415,107"/>
+<area shape="rect" id="node6" href="$communicator_8hpp.html" title="Заголовочный файл определения класса Communicator." alt="" coords="440,80,607,107"/>
+<area shape="rect" id="node7" href="$user__interface_8cpp.html" title="Файл реализации класса UserInterface." alt="" coords="501,155,666,181"/>
+</map>

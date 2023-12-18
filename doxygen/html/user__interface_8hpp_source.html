@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server-Calculator: Исходный файл src/user_interface.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server-Calculator<span id="projectnumber">&#160;1.4</span>
+   </div>
+   <div id="projectbrief">Курсовая работа по дисциплине &#39;Технологии и методы программирования&#39;.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">user_interface.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="user__interface_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;boost/program_options.hpp&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="log__writer_8hpp.html">log_writer.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>po = boost::program_options;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classUserInterface.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classUserInterface.html">UserInterface</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="classUserInterface.html#ae6fb70370701b3bd6120e923df9705b0">UserInterface</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUserInterface.html#a3c886fb6d06bd3752ac5c83c464ebb5e">CheckParams</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUserInterface.html#a9a658f007e99526bbccadae1d56f409c">StartServer</a>(<a class="code hl_enumeration" href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> verbosity);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#ifdef UNIT_TEST_SRV</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classUserInterface.html#af553c63689c326da91ec8bd473d82779">   53</a></span>    po::options_description <a class="code hl_variable" href="classUserInterface.html#af553c63689c326da91ec8bd473d82779">description_</a>; </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classUserInterface.html#a25239ff5d4c3fcbe37e3a3a2faba7fd1">   57</a></span>    po::variables_map <a class="code hl_variable" href="classUserInterface.html#a25239ff5d4c3fcbe37e3a3a2faba7fd1">var_map_</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classUserInterface.html#ad39050748c00933b859dc6cf3f367411">   59</a></span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classUserInterface.html#ad39050748c00933b859dc6cf3f367411">defPort</a> = 33333;                       </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classUserInterface.html#ad463cac6a91ed0a84adc7f0a961e20a1">   60</a></span>    <span class="keyword">const</span> std::string <a class="code hl_variable" href="classUserInterface.html#ad463cac6a91ed0a84adc7f0a961e20a1">defLogFilePath</a> = <span class="stringliteral">&quot;/var/log/vcalc.log&quot;</span>;  </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classUserInterface.html#a4423da532ce54ceec167db4f13289f6a">   61</a></span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classUserInterface.html#a4423da532ce54ceec167db4f13289f6a">defThreadsCount</a> = 1;                   </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classUserInterface.html#a1edbddb8a461d1bf8dbc4d8756be38bb">   63</a></span>    std::string <a class="code hl_variable" href="classUserInterface.html#a1edbddb8a461d1bf8dbc4d8756be38bb">client_base_file_path_</a>; </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classUserInterface.html#a7bc920415c5ad8bd363121dc2e572a56">   64</a></span>    std::string <a class="code hl_variable" href="classUserInterface.html#a7bc920415c5ad8bd363121dc2e572a56">log_file_path_</a>;         </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classUserInterface.html#a1b5bb8cfc8f55ee2d3040c1a4bc9885e">   65</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classUserInterface.html#a1b5bb8cfc8f55ee2d3040c1a4bc9885e">port_</a>;                 </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classUserInterface.html#a07d1c0bb238d51778d2db09ac4b7b3a1">   66</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classUserInterface.html#a07d1c0bb238d51778d2db09ac4b7b3a1">threads_</a>;              </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+<div class="ttc" id="aclassUserInterface_html"><div class="ttname"><a href="classUserInterface.html">UserInterface</a></div><div class="ttdoc">Класс для обработки командной строки.</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:18</div></div>
+<div class="ttc" id="aclassUserInterface_html_a07d1c0bb238d51778d2db09ac4b7b3a1"><div class="ttname"><a href="classUserInterface.html#a07d1c0bb238d51778d2db09ac4b7b3a1">UserInterface::threads_</a></div><div class="ttdeci">unsigned int threads_</div><div class="ttdoc">Количество потоков для обработки клиентов</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:66</div></div>
+<div class="ttc" id="aclassUserInterface_html_a1b5bb8cfc8f55ee2d3040c1a4bc9885e"><div class="ttname"><a href="classUserInterface.html#a1b5bb8cfc8f55ee2d3040c1a4bc9885e">UserInterface::port_</a></div><div class="ttdeci">unsigned int port_</div><div class="ttdoc">Порт, на котором будет запущен сервер</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:65</div></div>
+<div class="ttc" id="aclassUserInterface_html_a1edbddb8a461d1bf8dbc4d8756be38bb"><div class="ttname"><a href="classUserInterface.html#a1edbddb8a461d1bf8dbc4d8756be38bb">UserInterface::client_base_file_path_</a></div><div class="ttdeci">std::string client_base_file_path_</div><div class="ttdoc">Путь к файлу с данными пользователей</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:63</div></div>
+<div class="ttc" id="aclassUserInterface_html_a25239ff5d4c3fcbe37e3a3a2faba7fd1"><div class="ttname"><a href="classUserInterface.html#a25239ff5d4c3fcbe37e3a3a2faba7fd1">UserInterface::var_map_</a></div><div class="ttdeci">po::variables_map var_map_</div><div class="ttdoc">Ассоциативный массив, связывающий параметры командной строки с их значениями.</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:57</div></div>
+<div class="ttc" id="aclassUserInterface_html_a3c886fb6d06bd3752ac5c83c464ebb5e"><div class="ttname"><a href="classUserInterface.html#a3c886fb6d06bd3752ac5c83c464ebb5e">UserInterface::CheckParams</a></div><div class="ttdeci">bool CheckParams(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> user_interface.cpp:41</div></div>
+<div class="ttc" id="aclassUserInterface_html_a4423da532ce54ceec167db4f13289f6a"><div class="ttname"><a href="classUserInterface.html#a4423da532ce54ceec167db4f13289f6a">UserInterface::defThreadsCount</a></div><div class="ttdeci">const unsigned int defThreadsCount</div><div class="ttdoc">Значение по умолчанию для количества потоков.</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:61</div></div>
+<div class="ttc" id="aclassUserInterface_html_a7bc920415c5ad8bd363121dc2e572a56"><div class="ttname"><a href="classUserInterface.html#a7bc920415c5ad8bd363121dc2e572a56">UserInterface::log_file_path_</a></div><div class="ttdeci">std::string log_file_path_</div><div class="ttdoc">Путь к файлу журнала работы сервера</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:64</div></div>
+<div class="ttc" id="aclassUserInterface_html_a9a658f007e99526bbccadae1d56f409c"><div class="ttname"><a href="classUserInterface.html#a9a658f007e99526bbccadae1d56f409c">UserInterface::StartServer</a></div><div class="ttdeci">void StartServer(LogPriority verbosity)</div><div class="ttdoc">Запускает процесс создания сервера.</div><div class="ttdef"><b>Definition:</b> user_interface.cpp:87</div></div>
+<div class="ttc" id="aclassUserInterface_html_ad39050748c00933b859dc6cf3f367411"><div class="ttname"><a href="classUserInterface.html#ad39050748c00933b859dc6cf3f367411">UserInterface::defPort</a></div><div class="ttdeci">const unsigned int defPort</div><div class="ttdoc">Значение по умолчанию для порта.</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:59</div></div>
+<div class="ttc" id="aclassUserInterface_html_ad463cac6a91ed0a84adc7f0a961e20a1"><div class="ttname"><a href="classUserInterface.html#ad463cac6a91ed0a84adc7f0a961e20a1">UserInterface::defLogFilePath</a></div><div class="ttdeci">const std::string defLogFilePath</div><div class="ttdoc">Значение по умолчанию для пути к фалу журнала.</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:60</div></div>
+<div class="ttc" id="aclassUserInterface_html_ae6fb70370701b3bd6120e923df9705b0"><div class="ttname"><a href="classUserInterface.html#ae6fb70370701b3bd6120e923df9705b0">UserInterface::UserInterface</a></div><div class="ttdeci">UserInterface()</div><div class="ttdoc">Конструктор без параметров. Создаёт список параметров командной строки.</div><div class="ttdef"><b>Definition:</b> user_interface.cpp:23</div></div>
+<div class="ttc" id="aclassUserInterface_html_af553c63689c326da91ec8bd473d82779"><div class="ttname"><a href="classUserInterface.html#af553c63689c326da91ec8bd473d82779">UserInterface::description_</a></div><div class="ttdeci">po::options_description description_</div><div class="ttdoc">Описание параметров командой строки.</div><div class="ttdef"><b>Definition:</b> user_interface.hpp:53</div></div>
+<div class="ttc" id="alog__writer_8hpp_html"><div class="ttname"><a href="log__writer_8hpp.html">log_writer.hpp</a></div><div class="ttdoc">Заголовочный файл определения класса LogWriter.</div></div>
+<div class="ttc" id="alog__writer_8hpp_html_aa8b1c6568df4ee385e4d1d12f7153f02"><div class="ttname"><a href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a></div><div class="ttdeci">LogPriority</div><div class="ttdoc">Набор уровней записей журнала.</div><div class="ttdef"><b>Definition:</b> log_writer.hpp:23</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

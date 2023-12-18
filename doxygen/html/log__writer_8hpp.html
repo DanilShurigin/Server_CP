@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server-Calculator: Файл src/log_writer.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server-Calculator<span id="projectnumber">&#160;1.4</span>
+   </div>
+   <div id="projectbrief">Курсовая работа по дисциплине &#39;Технологии и методы программирования&#39;.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#enum-members">Перечисления</a>  </div>
+  <div class="headertitle"><div class="title">Файл log_writer.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Заголовочный файл определения класса <a class="el" href="classLogWriter.html" title="Класс для записи информации в журнал работы сервера.">LogWriter</a>.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Граф включаемых заголовочных файлов для log_writer.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="log__writer_8hpp__incl.png" border="0" usemap="#asrc_2log__writer_8hpp" alt=""/></div>
+<map name="asrc_2log__writer_8hpp" id="asrc_2log__writer_8hpp">
+<area shape="rect" title="Заголовочный файл определения класса LogWriter." alt="" coords="9,5,146,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,64,107"/>
+<area shape="rect" title=" " alt="" coords="88,80,152,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Граф файлов, в которые включается этот файл:</div>
+<div class="dyncontent">
+<div class="center"><img src="log__writer_8hpp__dep__incl.png" border="0" usemap="#asrc_2log__writer_8hppdep" alt=""/></div>
+<map name="asrc_2log__writer_8hppdep" id="asrc_2log__writer_8hppdep">
+<area shape="rect" title="Заголовочный файл определения класса LogWriter." alt="" coords="344,5,481,32"/>
+<area shape="rect" href="client_8cpp.html" title="Файл реализации класса Client." alt="" coords="5,155,113,181"/>
+<area shape="rect" href="client_8hpp.html" title="Заголовочный файл определения класса Client." alt="" coords="85,80,194,107"/>
+<area shape="rect" href="communicator_8cpp.html" title="Файл реализации класса Communicator." alt="" coords="149,155,314,181"/>
+<area shape="rect" href="communicator_8hpp.html" title="Заголовочный файл определения класса Communicator." alt="" coords="269,80,436,107"/>
+<area shape="rect" href="user__interface_8cpp.html" title="Файл реализации класса UserInterface." alt="" coords="391,155,557,181"/>
+<area shape="rect" href="log__writer_8cpp.html" title="Файл реализации класса LogWriter." alt="" coords="511,80,647,107"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="763,155,868,181"/>
+<area shape="rect" href="user__interface_8hpp.html" title="Заголовочный файл определения класса UserInterface." alt="" coords="672,80,839,107"/>
+</map>
+</div>
+</div>
+<p><a href="log__writer_8hpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogWriter.html">LogWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс для записи информации в журнал работы сервера.  <a href="classLogWriter.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:aa8b1c6568df4ee385e4d1d12f7153f02"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> { <br />
+&#160;&#160;<a class="el" href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8">Debug</a>
+, <a class="el" href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02a1cd805eaf0bb58a90fe7e7e4cf6a3cdc">Info</a>
+, <a class="el" href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02a86a4f5be1b42a6ee68eaeb357bbe065c">Warn</a>
+, <a class="el" href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f">Error</a>
+, <br />
+&#160;&#160;<a class="el" href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02a24d54883f5403a81c97e5ce29ee031ba">Fatal</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:aa8b1c6568df4ee385e4d1d12f7153f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Набор уровней записей журнала.  <a href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa8b1c6568df4ee385e4d1d12f7153f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Заголовочный файл определения класса <a class="el" href="classLogWriter.html" title="Класс для записи информации в журнал работы сервера.">LogWriter</a>. </p>
+<dl class="section author"><dt>Автор</dt><dd>Шурыгин Д.Д. </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>2023-12-16 </dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Создано только в учебных целях. </dd></dl>
+</div><h2 class="groupheader">Перечисления</h2>
+<a id="aa8b1c6568df4ee385e4d1d12f7153f02" name="aa8b1c6568df4ee385e4d1d12f7153f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8b1c6568df4ee385e4d1d12f7153f02">&#9670;&nbsp;</a></span>LogPriority</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="log__writer_8hpp.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Набор уровней записей журнала. </p>
+<p >[Debug] - Записи, содержащие подробную информацию о действиях. [Info] - Записи, содержащие основную информацию о работе сервера. [Warn] - Записи, содержищие предупреждения о некорректной работе сервера. [Error] - Записи, содержащие информацию о некритических ошибках, возникших при работе с клиентом. [Fatal] - Записи, содержащие информацию о критических ошибках, после которых работа сервера прекращается. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8" name="aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8"></a>Debug&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a1cd805eaf0bb58a90fe7e7e4cf6a3cdc" name="aa8b1c6568df4ee385e4d1d12f7153f02a1cd805eaf0bb58a90fe7e7e4cf6a3cdc"></a>Info&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a86a4f5be1b42a6ee68eaeb357bbe065c" name="aa8b1c6568df4ee385e4d1d12f7153f02a86a4f5be1b42a6ee68eaeb357bbe065c"></a>Warn&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f" name="aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f"></a>Error&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a24d54883f5403a81c97e5ce29ee031ba" name="aa8b1c6568df4ee385e4d1d12f7153f02a24d54883f5403a81c97e5ce29ee031ba"></a>Fatal&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>
